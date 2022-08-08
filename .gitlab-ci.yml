@@ -1,0 +1,13 @@
+stages:
+  - build-app
+
+build app:
+  stage: build-app
+  image: node:16
+  script:
+    - npm i
+    - npm run build
+    - npm run start:prod
+  cache:
+    paths:
+      - node_modules
