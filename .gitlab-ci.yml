@@ -10,8 +10,10 @@ build app:
   script:
     - npm i
     - npm run build
-    - pm2 delete backend
-    - pm2 start dist/main.js --name "backend" 
-    - pm2 save
+    - start:prod
+    # - pm2 delete backend
+    # - pm2 start dist/main.js --name "backend" 
+    # - pm2 start dist/main.js --name <application_name>
+    # - pm2 save
     - echo "done"
 
