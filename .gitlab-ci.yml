@@ -1,5 +1,5 @@
-stages:
-  - build-app
+# stages:
+#   - build-app
 
 build app:
   stage: build-app
