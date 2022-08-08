@@ -25,7 +25,7 @@ build iamge:
     - docker:20.10.17-dind
   variables:
     IMAGE_NAME: sepehr310/cicd
-    IMAGE_TAG: nestjs
+    IMAGE_TAG: nest-00-1b
     DOCKER_TLS_CERTDIR: "/certs"
   before_script:
    - docker login -u $dockerUsername -p $dockerPassword
