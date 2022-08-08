@@ -8,6 +8,4 @@ build app:
     - npm i
     - npm run build
     - npm run start:prod
-  cache:
-    paths:
-      - node_modules
+    - echo done
