@@ -4,8 +4,14 @@ stages:
 build app:
   stage: build-app
   image: node:16
+  before_script:
+    - npm i
+    - npm i pm2
   script:
     - npm i
     - npm run build
-    - npm run start:prod
-    - echo done
+    - pm2 delete backend
+    - pm2 start dist/main.js --name "backend" 
+    - pm2 save
+    - echo "done"
+
