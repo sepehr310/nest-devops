@@ -10,7 +10,7 @@ build app:
   script:
     - npm i
     - npm run build
-    - npm run start:prod
+    # - npm run start:prod
     - pm2 delete backend
     - pm2 start dist/main.js --name "backend" 
     # - pm2 start dist/main.js --name <application_name>
