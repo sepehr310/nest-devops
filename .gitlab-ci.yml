@@ -1,6 +1,6 @@
 stages:
   - build-app
-  - build-image
+  # - build-image
 
 
 build app:
@@ -18,18 +18,18 @@ build app:
     - pm2 save
     - echo "done"
 
-build iamge:
-  stage: build-image
-  image: docker:20.10.17
-  services:
-    - docker:20.10.17-dind
-  variables:
-    IMAGE_NAME: sepehr310/cicd
-    IMAGE_TAG: nest-00-1b
-    DOCKER_TLS_CERTDIR: "/certs"
-  before_script:
-   - docker login -u $dockerUsername -p $dockerPassword
-  script:
-    - docker build  -t $IMAGE_NAME:$IMAGE_TAG .
-    - docker push $IMAGE_NAME:$IMAGE_TAG
+# build iamge:
+#   stage: build-image
+#   image: docker:20.10.17
+#   services:
+#     - docker:20.10.17-dind
+#   variables:
+#     IMAGE_NAME: sepehr310/cicd
+#     IMAGE_TAG: nest-00-1b
+#     DOCKER_TLS_CERTDIR: "/certs"
+#   before_script:
+#    - docker login -u $dockerUsername -p $dockerPassword
+#   script:
+#     - docker build  -t $IMAGE_NAME:$IMAGE_TAG .
+#     - docker push $IMAGE_NAME:$IMAGE_TAG
  
