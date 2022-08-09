@@ -7,7 +7,7 @@ build app:
   stage: build-app
   image: node:16
   before_script:
-    - ssh StrictHostKeyChecking=no -i $sshKey ubuntu@54.175.201.191
+    - ssh -o StrictHostKeyChecking=no -i $sshKey ubuntu@54.175.201.191
     - npm i
     - npm i -g pm2
   script:
