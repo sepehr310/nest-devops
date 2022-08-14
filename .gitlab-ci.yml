@@ -1,22 +1,22 @@
-# stages:
-#   - build-app
-#   # - build-image
+stages:
+  - build-app
+  # - build-image
 
 
-# build app:
-#   stage: build-app
-#   image: node:16
-#   before_script:
-#     - npm i
-#     - npm i -g pm2
-#   script:
-#     - npm run build
-#     # - npm run start:prod
-#     # - pm2 delete backend
-#     - pm2 start dist/main.js --name "backend" 
-#     # - pm2 start dist/main.js --name <application_name>
-#     - pm2 save
-#     - echo "done"
+build app:
+  stage: build-app
+  image: node:16
+  before_script:
+    - npm i
+    - npm i -g pm2
+  script:
+    - npm run build
+    # - npm run start:prod
+    # - pm2 delete backend
+    - pm2 start dist/main.js --name "backend" 
+    # - pm2 start dist/main.js --name <application_name>
+    - pm2 save
+    - echo "done"
 
 # build iamge:
 #   stage: build-image
@@ -33,24 +33,24 @@
 #     - docker build  -t $IMAGE_NAME:$IMAGE_TAG .
 #     - docker push $IMAGE_NAME:$IMAGE_TAG
  
-build_development:
-  stage: deploy
-  only:
-    - develop
-  tags:
-    - sandbox
-  artifacts:
-    paths:
-     - uploads/
-  variables:
-    GIT_CLEAN_FLAGS: none
-  before_script:
-    - rm -rf dist
-  script:
-    - rm -rf build
-    - npm i
-    - npm run build
-    - pm2 delete backend
-    - pm2 start dist/main.js --name "backend" 
-    - pm2 save
-    - echo "done"
+# build_development:
+#   stage: deploy
+#   only:
+#     - develop
+#   tags:
+#     - sandbox
+#   artifacts:
+#     paths:
+#      - uploads/
+#   variables:
+#     GIT_CLEAN_FLAGS: none
+#   before_script:
+#     - rm -rf dist
+#   script:
+#     - rm -rf build
+#     - npm i
+#     - npm run build
+#     - pm2 delete backend
+#     - pm2 start dist/main.js --name "backend" 
+#     - pm2 save
+#     - echo "done"
