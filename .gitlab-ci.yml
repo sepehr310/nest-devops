@@ -1,6 +1,16 @@
 stages:
+  - test-app
   - build-app
   # - build-image
+
+test app:
+  stage: test-app
+  image: node:16
+  before_script:
+    - npm i
+  script:
+    - npm run test
+    - echo "done"
 
 
 build app:
