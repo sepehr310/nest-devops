@@ -1,0 +1,10 @@
+service:
+    image: postgres
+    ports:
+      - 5432:5432
+    environment:
+      - POSOTGRES_USERNAME=postgres
+      - POSTGRES_PASSWORD=root
+      - POSTGRES_DB=nestjs
+    
+    
