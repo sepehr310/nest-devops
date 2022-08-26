@@ -1,11 +1,10 @@
+import { Cart } from 'src/cart/entities/cart.entity';
 import {
   BaseEntity,
   Column,
   CreateDateColumn,
   Entity,
   JoinColumn,
-  JoinTable,
-  ManyToMany,
   OneToMany,
   PrimaryGeneratedColumn,
   UpdateDateColumn,
@@ -29,4 +28,11 @@ export class Product extends BaseEntity {
   createdAt: Date;
   @UpdateDateColumn()
   updatedAt: Date;
+
+  @OneToMany(() => Cart, (cart) => cart.product, {
+    cascade: true,
+    eager: true,
+  })
+  @JoinColumn()
+  cart: Cart[];
 }

@@ -5,6 +5,7 @@ import { AppService } from './app.service';
 import { UsersModule } from './users/users.module';
 import { ConfigModule } from '@nestjs/config';
 import { ProductModule } from './product/product.module';
+import { CartModule } from './cart/cart.module';
 
 
 @Module({
@@ -24,6 +25,7 @@ import { ProductModule } from './product/product.module';
       synchronize: process.env.TYPEORM_SYNC == 'true' ? true : false,
     }),
     ProductModule,
+    CartModule,
   ],
   controllers: [AppController],
   providers: [AppService],
