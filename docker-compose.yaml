@@ -2,8 +2,8 @@ version: '3.8'
 
 services:
     server:
-        container_name: lotus-backend-dev
-        image: bluelotus:dev_backend
+        container_name: nest-devops
+        image: nest-devops:latest
         build:
             context: .
             target: development
