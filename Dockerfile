@@ -1,5 +1,5 @@
 # Base image
-FROM node:16
+FROM node:18-alpine as development
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -8,7 +8,7 @@ WORKDIR /usr/src/app
 COPY package*.json ./
 
 # Install app dependencies
-RUN npm install --force
+#  RUN npm i --force
 
 # Bundle app source
 COPY . .
@@ -17,4 +17,4 @@ COPY . .
 RUN npm run build
 
 # Start the server using the production build
-CMD [ "node", "dist/main.js" ]
+CMD [ "npm" , "run" , "start:prod" ]
