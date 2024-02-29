@@ -4,17 +4,19 @@ FROM node:18-alpine as development
 # Create app directory
 WORKDIR /usr/src/app
 
-# A wildcard is used to ensure both package.json AND package-lock.json are copied
-COPY package*.json ./
+# Bundle app source
+COPY . .
 
 # Install app dependencies
 RUN npm i --force
 
-# Bundle app source
-COPY . .
+EXPOSE 3000
 
-# Creates a "dist" folder with the production build
-RUN npm run build
 
-# Start the server using the production build
-CMD [ "npm" , "run" , "start:prod" ]
+RUN addgroup app && adduser -S -G app app
+
+# # Creates a "dist" folder with the production build
+# RUN npm run build
+
+# # Start the server using the production build
+# CMD [ "npm" , "run" , "start:prod" ]
