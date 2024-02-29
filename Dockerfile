@@ -1,9 +1,7 @@
 # Base image
 FROM node:18-alpine as development
 
-RUN addgroup app && adduser -S -G app app
 
-USER app
 
 # Create app directory
 WORKDIR /usr/src/app
@@ -16,7 +14,9 @@ RUN npm i --force
 
 EXPOSE 3000
 
+RUN addgroup app && adduser -S -G app app
 
+USER app
 
 
 # # Creates a "dist" folder with the production build
