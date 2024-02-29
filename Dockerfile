@@ -14,13 +14,13 @@ RUN npm i --force
 
 EXPOSE 3000
 
-RUN addgroup app && adduser -S -G app app
+# RUN addgroup app && adduser -S -G app app
 
-USER app
+# USER app
 
 
 # # Creates a "dist" folder with the production build
 # RUN npm run build
 
 # # Start the server using the production build
-# CMD [ "npm" , "run" , "start:prod" ]
+ CMD [ "npm" , "run" , "start" ]
