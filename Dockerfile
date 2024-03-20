@@ -1,9 +1,9 @@
 # Base image
 FROM node:18-alpine as development
 
-RUN addgroup app && adduser -S -G app app
+# RUN addgroup app && adduser -S -G app app
 
-USER app
+# USER app
 
 # Create app directory
 WORKDIR /app
@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . .
 
 # Install app dependencies
-RUN npm i
+RUN npm i --force
 
 EXPOSE 3000
 
