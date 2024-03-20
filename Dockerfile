@@ -12,7 +12,7 @@ WORKDIR /app
 COPY . .
 
 # Install app dependencies
-RUN npm i --force
+RUN npm ci
 
 EXPOSE 3000
 
