@@ -13,7 +13,7 @@ env:
     AWS_REGION: us-east-2 # set this to your preferred AWS region, e.g. us-west-1
     ECR_REPOSITORY: lotuschain
     CONTAINER_NAME: server
-    ECR_REGISTRY: 851357357578.dkr.ecr.us-east-2.amazonaws.com
+    ECR_REGISTRY: url
     IMAGE_TAG: dev
     ECS_TASK_DEFINITION: task-definition.json
     ECS_SERVICE: backend
