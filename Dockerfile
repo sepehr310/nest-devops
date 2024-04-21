@@ -8,11 +8,15 @@ FROM node:18 as development
 # Create app directory
 WORKDIR /app
 
-# Bundle app source
-COPY . .
+COPY package.json .
 
 # Install app dependencies
 RUN npm i --force
+
+# Bundle app source
+COPY . .
+
+
 
 EXPOSE 3000
 
