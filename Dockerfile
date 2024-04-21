@@ -1,5 +1,5 @@
 # Base image
-FROM node:18-alpine as development
+FROM node:18 as development
 
 # RUN addgroup app && adduser -S -G app app
 
